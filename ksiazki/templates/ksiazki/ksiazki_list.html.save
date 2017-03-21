@@ -1,0 +1,34 @@
+<h1>Lista książek</h1>
+
+<table border="1" cellspacing="2" cellpadding="10" class="table">
+<tr>
+<th>Lp.</th>
+<th>Tytuł</th>
+<th>Przedmiot</th>
+<th>Autor</th>
+<th>Wydawnictwo</th>
+<th>Cena</th>
+<th>Opis</th>
+<th>Kontakt</th>
+<th>Właściciel</th>
+<th>Operacje</th>
+</tr>
+{% for p in object_list %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ p.tytul }}</td>
+    <td>{{ p.przedmiot}}</td>
+    <td>{{ p.autor }}</td>
+    <td>{{ p.wydawnictwo}}</td>
+    <td>{{ p.cena }}</td>
+    <td>{{ p.opis }}</td>
+    <td>{{ p.kontakt }}</td>
+    <td>{{ p.uzytkownik }}</td>
+    <td>
+        {% if p.uzytkownik.username == user.username %}
+          &bull; <a href="#">Usuń</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table>

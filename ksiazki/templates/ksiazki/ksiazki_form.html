@@ -1,0 +1,18 @@
+<h1>Dodaj książkę</h1>
+
+<form action="." method="post" id="pform">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <h3>Ksiazki:</h3>
+    {{ ksiazki.management_form }}
+    {{ ksiazki.non_form_errors }}
+    {% for skl in skladniki %}
+    {{ skl.id }}
+        <div class="{{ ksiazki.prefix }}">
+            <span>{{ forloop.counter }})&nbsp;</span>       {{ skl.nazwa.errors }}
+            {{ skl.nazwa.label_tag }} {{ skl.nazwa }}
+        </div>
+    {% endfor %}
+    <br /><input type="submit" value="Zapisz">
+</form>

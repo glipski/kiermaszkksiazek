@@ -1,0 +1,5 @@
+<h1>Wylogowanie</h1>
+<p>Zostałeś wylogowany!</p	
+   <a href="{% url 'auth_login' %}">Zaloguj się</a><br>
+   <a href="{% url 'registration_register' %}">Utwórz konto</a>
+

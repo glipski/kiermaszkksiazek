@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Kiermasz</title>
+</head>
+
+<body>
+<center><h1>Kiermasz książek CKR w Siennicy Różanej</h1>
+<p>{{ komunikat }}</p>
+<br><br>
+
+  {% if not user.is_authenticated %}
+   <a href="{% url 'auth_login' %}">Zaloguj się</a><br>
+   <a href="{% url 'registration_register' %}">Utwórz konto</a>    
+     {% else %}   
+<br> <a href="{% url 'ksiazki:lista' %}">Lista książek</a>
+<br> <a href="{% url 'ksiazki:dodaj' %}">Dodaj książkę</a>
+<br><br> <a href="{% url 'auth_logout' %}">Wyloguj się</a>
+ {% endif %} 
+</center>
+
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+<h1>Usuwanie książki</h1>
+<form action="." method="post">
+  {% csrf_token %}
+  <p>Czy na pewno chcesz usunąć książkę:<br />"{{ object }}"?</p>
+    <ol>Ksiazki:
+    {% for s in skladnikii %}
+      <li>{{ s.nazwa }}</li>
+    {% endfor %}
+    </ol>
+  <button type="submit">Usuń</button>
+</form>

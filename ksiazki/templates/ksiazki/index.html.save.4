@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Kiermasz</title>
+</head>
+
+<body>
+<center><h1>Kiermasz książek CKR w Siennicy Różanej</h1>
+<p>{{ komunikat }}</p>
+<br><br>
+
+  {% if not user.is_authenticated %}
+   <br> <a href="{% url 'ksiazki:lista' %}">Lista książek</a>
+   <a href="{% url 'auth_login' %}">Zaloguj się</a><br>
+   <a href="{% url 'registration_register' %}">Utwórz konto</a>    
+     {% else %}   
+<br> <a href="{% url 'ksiazki:lista' %}">Lista książek</a>
+<br> <a href="{% url 'ksiazki:dodaj' %}">Dodaj książkę</a>
+<br><br> <a href="{% url 'auth_logout' %}">Wyloguj się</a>
+ {% endif %} 
+</center>
+
+
+
+<center><h1>Lista książek</h1></center>
+<center><table border="1" cellspacing="2" cellpadding="10" class="table">
+<tr>
+<th>Lp.</th>
+<th>Tytuł</th>
+<th>Przedmiot</th>
+<th>Autor</th>
+<th>Wydawnictwo</th>
+<th>Cena</th>
+<th>Opis</th>
+<th>Kontakt</th>
+<th>Użytkownik</th>
+<th>Operacje</th>
+</tr>
+{% for p in object_list %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ p.tytul }}</td>
+    <td>{{ p.przedmiot}}</td>
+    <td>{{ p.autor }}</td>
+    <td>{{ p.wydawnictwo}}</td>
+    <td>{{ p.cena }}</td>
+    <td>{{ p.opis }}</td>
+    <td>{{ p.kontakt }}</td>
+    <td>{{ p.uzytkownik }}</td>
+    <td>
+        {% if p.uzytkownik.username == user.username %}
+          &bull; <a href="{% url 'ksiazki:edytuj' p.id %}">Edytuj</a>
+          &bull; <a href="{% url 'ksiazki:usun' p.id %}">Usuń</a>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+</table></center>
+
+
+</body>
+
+</html>
