@@ -20,4 +20,4 @@ class KsiazkiForm(ModelForm):
                   'data': Textarea(attrs={'rows': 1, 'cols': 50}),
                   'uzytkownik': Textarea(attrs={'rows': 1, 'cols': 50})}
 
-# test git push :)
+# test git push 2 :)
