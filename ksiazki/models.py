@@ -5,8 +5,12 @@ from django.db import models
 
 
 class Ksiazki(models.Model):
-    Uzywana = 'U'
-    Nowa = 'N'
+    UZYWANA = 'U'
+    NOWA = 'N'
+    STAN = ((UZYWANA, 'Używana'), (NOWA, 'Nowa'),)
+
+
+    stan = models.CharField(max_length=1, choices=STAN, default=UZYWANA)
     tytul = models.CharField(verbose_name='Tytuł', max_length=30)
     przedmiot = models.TextField(blank=True, help_text='Przedmiot')
     autor = models.TextField(blank=True, help_text='Autor')
