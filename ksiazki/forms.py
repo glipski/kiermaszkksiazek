@@ -18,6 +18,5 @@ class KsiazkiForm(ModelForm):
                   'cena': Textarea(attrs={'rows': 1, 'cols': 50}),
                   'opis': Textarea(attrs={'rows': 1, 'cols': 50}),
                   'data': Textarea(attrs={'rows': 1, 'cols': 50}),
-                  'uzytkownik': Textarea(attrs={'rows': 1, 'cols': 50})}
-
-# test git push 2 :)
+                  #'uzytkownik': Textarea(attrs={'rows': 1, 'cols': 50})
+                  }
