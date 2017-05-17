@@ -29,7 +29,7 @@ SECRET_KEY = 'wzm_!#g4bp@(uw9!@k6i@u_ubi1iykq=a))-0@a7edvc9reoet'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['kiermasz-ksiazek.herokuapp.com']
 
 
 # Application definition
